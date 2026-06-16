@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <!-- Zone de saisie de la note -->
+    <LinearLayout
+        android:id="@+id/container_formulaire"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@color/vert"
+        android:padding="16dp"
+        android:layout_margin="16dp">
+
+        <EditText
+            android:id="@+id/et_titre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Titre"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#CCFFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:background="@android:color/transparent"
+            android:inputType="text"
+            android:singleLine="true" />
+
+        <EditText
+            android:id="@+id/et_contenu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Contenu..."
+            android:textColor="#FFFFFF"
+            android:textColorHint="#CCFFFFFF"
+            android:textSize="14sp"
+            android:gravity="top"
+            android:background="@android:color/transparent"
+            android:inputType="textMultiLine" />
+
+    </LinearLayout>
+
+    <!-- Bouton Créer / Modifier -->
+    <Button
+        android:id="@+id/btn_enregistrer"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Créer"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:backgroundTint="@color/noir" />
+
+</LinearLayout>
