@@ -1,3 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">GestionnaireNotes</string>
+    <string name="app_name">Mes Notes</string>
+    <string name="aucune_note">Aucune notes</string>
+    <string name="rechercher">Rechercher</string>
+    <string name="favoris">Favoris</string>
+    <string name="creer">Créer</string>
+    <string name="modifier">Modifier</string>
+    <string name="titre">Titre</string>
+    <string name="contenu">Contenu</string>
 </resources>
