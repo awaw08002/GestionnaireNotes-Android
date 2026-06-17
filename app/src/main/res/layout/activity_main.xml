@@ -1,128 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <!-- Barre de recherche et filtre favoris -->
     <LinearLayout
-        android:id="@+id/layout_filtre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp">
-
-        <EditText
-            android:id="@+id/et_recherche"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/rechercher"
-            android:drawableStart="@drawable/ic_search"
-            android:drawablePadding="8dp"
-            android:background="@drawable/bg_recherche"
-            android:padding="10dp"
-            android:inputType="text"
-            android:singleLine="true" />
-
-        <Button
-            android:id="@+id/btn_favoris"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="@string/favoris"
-            android:backgroundTint="@color/blanc"
-            android:textColor="@color/noir"
-            style="@style/Widget.AppCompat.Button.Borderless" />
-
-    </LinearLayout>
-
-    <!-- Message liste vide -->
-    <TextView
-        android:id="@+id/tv_vide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="@string/aucune_note"
-        android:textColor="@color/gris"
-        android:textSize="14sp"
-        android:visibility="gone" />
-
-    <!-- Liste des notes -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_notes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/layout_filtre"
-        android:padding="4dp"
-        android:clipToPadding="false" />
-
-    <!-- Palette de couleurs (cachée par défaut) -->
-    <LinearLayout
-        android:id="@+id/layout_palette"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="80dp"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:padding="16dp">
 
-        <View
-            android:id="@+id/couleur_vert"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="4dp"
-            android:background="@drawable/bg_circle_vert" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
 
-        <View
-            android:id="@+id/couleur_rouge"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="4dp"
-            android:background="@drawable/bg_circle_rouge" />
+            <EditText
+                android:id="@+id/et_recherche"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_recherche"
+                android:drawableStart="@android:drawable/ic_menu_search"
+                android:drawablePadding="8dp"
+                android:hint="Rechercher"
+                android:textSize="14sp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:inputType="text"
+                android:imeOptions="actionSearch"
+                android:singleLine="true" />
 
-        <View
-            android:id="@+id/couleur_bleu"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="4dp"
-            android:background="@drawable/bg_circle_bleu" />
+            <TextView
+                android:id="@+id/btn_favoris"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Favoris"
+                android:gravity="center"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_recherche"
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
 
-        <View
-            android:id="@+id/couleur_jaune"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="4dp"
-            android:background="@drawable/bg_circle_jaune" />
+        <TextView
+            android:id="@+id/tv_aucune_notes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Aucune notes"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textColor="#828282"
+            android:visibility="gone" />
 
-        <View
-            android:id="@+id/couleur_orange"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="4dp"
-            android:background="@drawable/bg_circle_orange" />
-
-        <View
-            android:id="@+id/couleur_gris"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="4dp"
-            android:background="@drawable/bg_circle_gris" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_notes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="80dp" />
 
     </LinearLayout>
 
-    <!-- Bouton flottant + -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="80dp">
+
+        <View android:id="@+id/btn_couleur_vert" android:layout_width="40dp" android:layout_height="40dp" android:layout_marginBottom="6dp" android:background="@drawable/bg_circle_vert" android:visibility="gone" />
+        <View android:id="@+id/btn_couleur_rouge" android:layout_width="40dp" android:layout_height="40dp" android:layout_marginBottom="6dp" android:background="@drawable/bg_circle_rouge" android:visibility="gone" />
+        <View android:id="@+id/btn_couleur_bleu" android:layout_width="40dp" android:layout_height="40dp" android:layout_marginBottom="6dp" android:background="@drawable/bg_circle_bleu" android:visibility="gone" />
+        <View android:id="@+id/btn_couleur_jaune" android:layout_width="40dp" android:layout_height="40dp" android:layout_marginBottom="6dp" android:background="@drawable/bg_circle_jaune" android:visibility="gone" />
+        <View android:id="@+id/btn_couleur_orange" android:layout_width="40dp" android:layout_height="40dp" android:layout_marginBottom="6dp" android:background="@drawable/bg_circle_orange" android:visibility="gone" />
+        <View android:id="@+id/btn_couleur_gris" android:layout_width="40dp" android:layout_height="40dp" android:layout_marginBottom="6dp" android:background="@drawable/bg_circle_gris" android:visibility="gone" />
+
+    </LinearLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_ajouter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_add"
-        app:backgroundTint="@color/noir" />
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="#000000"
+        app:tint="#FFFFFF"
+        app:elevation="6dp" />
 
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
