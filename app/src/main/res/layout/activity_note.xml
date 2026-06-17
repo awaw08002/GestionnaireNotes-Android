@@ -1,60 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#FFFFFF">
 
-    <ScrollView
-        android:id="@+id/scroll_view"
+    <!-- Zone de saisie de la note -->
+    <LinearLayout
+        android:id="@+id/container_formulaire"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:padding="16dp">
+        android:orientation="vertical"
+        android:background="@color/vert"
+        android:padding="16dp"
+        android:layout_margin="16dp">
 
-        <LinearLayout
+        <EditText
+            android:id="@+id/et_titre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:hint="Titre"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#CCFFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:background="@android:color/transparent"
+            android:inputType="text"
+            android:singleLine="true" />
 
-            <EditText
-                android:id="@+id/et_titre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Titre"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#CCFFFFFF"
-                android:background="@android:color/transparent"
-                android:inputType="textCapSentences"
-                android:layout_marginBottom="12dp" />
+        <EditText
+            android:id="@+id/et_contenu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Contenu..."
+            android:textColor="#FFFFFF"
+            android:textColorHint="#CCFFFFFF"
+            android:textSize="14sp"
+            android:gravity="top"
+            android:background="@android:color/transparent"
+            android:inputType="textMultiLine" />
 
-            <EditText
-                android:id="@+id/et_contenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Contenu de la note..."
-                android:textSize="14sp"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#CCFFFFFF"
-                android:background="@android:color/transparent"
-                android:inputType="textMultiLine|textCapSentences"
-                android:gravity="top"
-                android:minHeight="400dp" />
+    </LinearLayout>
 
-        </LinearLayout>
-    </ScrollView>
-
+    <!-- Bouton Créer / Modifier -->
     <Button
-        android:id="@+id/btn_action"
+        android:id="@+id/btn_enregistrer"
         android:layout_width="match_parent"
         android:layout_height="56dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
         android:text="Créer"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        android:background="@android:color/black"
-        android:stateListAnimator="@null" />
+        android:backgroundTint="@color/noir" />
 
 </LinearLayout>
