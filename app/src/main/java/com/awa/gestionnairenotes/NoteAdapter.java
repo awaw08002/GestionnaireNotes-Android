@@ -23,6 +23,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     public interface OnNoteClickListener {
         void onNoteClick(Note note);
         void onNoteFavoriteToggled(Note note);
+        void onNoteDelete(Note note);
     }
 
     private List<Note> notes;
@@ -119,6 +120,11 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
 
         holder.itemView.setOnTouchListener((v, event) -> {
             gestureDetector.onTouchEvent(event);
+            return true;
+        });
+
+        holder.itemView.setOnLongClickListener(v -> {
+            listener.onNoteDelete(note);
             return true;
         });
     }

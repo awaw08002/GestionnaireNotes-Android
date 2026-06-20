@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements NoteAdapter.OnNot
     private RecyclerView recyclerView;
     private NoteAdapter adapter;
     private TextView tvAucuneNotes;
+    private TextView tvCompteur;
     private EditText etRecherche;
     private TextView btnFavoris;
     private FloatingActionButton fab;
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements NoteAdapter.OnNot
     private void initViews() {
         recyclerView    = findViewById(R.id.recycler_notes);
         tvAucuneNotes   = findViewById(R.id.tv_aucune_notes);
+        tvCompteur      = findViewById(R.id.tv_compteur);
         etRecherche     = findViewById(R.id.et_recherche);
         btnFavoris      = findViewById(R.id.btn_favoris);
         btnFavoris.bringToFront();
@@ -188,12 +190,29 @@ public class MainActivity extends AppCompatActivity implements NoteAdapter.OnNot
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void onNoteDelete(Note note) {
+        new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("Supprimer la note")
+                .setMessage("Voulez-vous vraiment supprimer cette note ?")
+                .setPositiveButton("Supprimer", (dialog, which) -> {
+                    noteDAO.ouvrir();
+                    noteDAO.supprimerNote(note.getId());
+                    noteDAO.fermer();
+                    chargerNotes();
+                    Toast.makeText(this, "Note supprimée", Toast.LENGTH_SHORT).show();
+                })
+                .setNegativeButton("Annuler", null)
+                .show();
+    }
+
     private void chargerNotes() {
         noteDAO.ouvrir();
         List<Note> notes = noteDAO.obtenirToutesLesNotes();
         noteDAO.fermer();
 
         adapter.setNotes(notes);
+        tvCompteur.setText(notes.size() + " note(s)");
 
         if (afficherFavoris) {
             adapter.filterFavoris(true);
