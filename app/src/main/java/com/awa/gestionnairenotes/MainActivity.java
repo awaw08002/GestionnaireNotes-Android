@@ -15,8 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.esp.gestionnairenotes.database.NoteDAO;
-import com.esp.gestionnairenotes.models.Note;
+import com.awa.gestionnairenotes.database.NoteDAO;
+import com.awa.gestionnairenotes.models.Note;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements NoteAdapter.OnNot
     private FloatingActionButton fab;
 
     private View btnVert, btnRouge, btnBleu, btnJaune, btnOrange, btnGris;
+    private View layoutPalette;
     private boolean paletteOuverte = false;
 
     private NoteDAO noteDAO;
@@ -72,8 +73,9 @@ public class MainActivity extends AppCompatActivity implements NoteAdapter.OnNot
         tvAucuneNotes   = findViewById(R.id.tv_aucune_notes);
         etRecherche     = findViewById(R.id.et_recherche);
         btnFavoris      = findViewById(R.id.btn_favoris);
+        btnFavoris.bringToFront();
         fab             = findViewById(R.id.fab_ajouter);
-
+        layoutPalette = findViewById(R.id.layout_palette);
         btnVert   = findViewById(R.id.btn_couleur_vert);
         btnRouge  = findViewById(R.id.btn_couleur_rouge);
         btnBleu   = findViewById(R.id.btn_couleur_bleu);
@@ -100,7 +102,9 @@ public class MainActivity extends AppCompatActivity implements NoteAdapter.OnNot
     }
 
     private void setupBoutonFavoris() {
+        android.util.Log.d("DEBUG_FAVORIS", "setupBoutonFavoris() appelée, btnFavoris = " + btnFavoris);
         btnFavoris.setOnClickListener(v -> {
+            android.util.Log.d("DEBUG_FAVORIS", "CLIC DETECTE !");
             afficherFavoris = !afficherFavoris;
             btnFavoris.setText(afficherFavoris ? "Tous" : "Favoris");
             adapter.filterFavoris(afficherFavoris);
@@ -129,12 +133,7 @@ public class MainActivity extends AppCompatActivity implements NoteAdapter.OnNot
 
     private void ouvrirPalette() {
         paletteOuverte = true;
-        btnVert.setVisibility(View.VISIBLE);
-        btnRouge.setVisibility(View.VISIBLE);
-        btnBleu.setVisibility(View.VISIBLE);
-        btnJaune.setVisibility(View.VISIBLE);
-        btnOrange.setVisibility(View.VISIBLE);
-        btnGris.setVisibility(View.VISIBLE);
+        layoutPalette.setVisibility(View.VISIBLE);
 
         animerApparition(btnVert);
         animerApparition(btnRouge);
@@ -150,12 +149,7 @@ public class MainActivity extends AppCompatActivity implements NoteAdapter.OnNot
     }
 
     private void masquerPalette() {
-        btnVert.setVisibility(View.GONE);
-        btnRouge.setVisibility(View.GONE);
-        btnBleu.setVisibility(View.GONE);
-        btnJaune.setVisibility(View.GONE);
-        btnOrange.setVisibility(View.GONE);
-        btnGris.setVisibility(View.GONE);
+        layoutPalette.setVisibility(View.GONE);
     }
 
     private void animerApparition(View vue) {

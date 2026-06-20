@@ -13,7 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.esp.gestionnairenotes.models.Note;
+import com.awa.gestionnairenotes.models.Note;
 
 import java.util.ArrayList;
 import java.util.List;

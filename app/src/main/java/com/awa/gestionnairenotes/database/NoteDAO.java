@@ -1,12 +1,12 @@
 
-package com.esp.gestionnairenotes.database;
+package com.awa.gestionnairenotes.database;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.esp.gestionnairenotes.models.Note;
+import com.awa.gestionnairenotes.models.Note;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -16,7 +16,7 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/tv_titre_note"
+            android:id="@+id/tv_titre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#FFFFFF"
@@ -25,10 +25,10 @@
             android:text="Titre" />
 
         <TextView
-            android:id="@+id/tv_date_note"
+            android:id="@+id/tv_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_titre_note"
+            android:layout_below="@id/tv_titre"
             android:layout_marginTop="4dp"
             android:textColor="#DDDDDD"
             android:textSize="12sp"

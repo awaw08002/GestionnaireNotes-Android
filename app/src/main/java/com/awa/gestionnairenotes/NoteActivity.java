@@ -5,13 +5,13 @@ import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ScrollView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.esp.gestionnairenotes.database.NoteDAO;
-import com.esp.gestionnairenotes.models.Note;
+import com.awa.gestionnairenotes.database.NoteDAO;
+import com.awa.gestionnairenotes.models.Note;
 
 import java.util.Date;
 
@@ -19,7 +19,7 @@ public class NoteActivity extends AppCompatActivity {
 
     private EditText etTitre;
     private EditText etContenu;
-    private ScrollView scrollView;
+    private LinearLayout scrollView;
     private Button btnAction;
 
     private NoteDAO noteDAO;
